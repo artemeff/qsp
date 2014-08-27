@@ -2,7 +2,7 @@
 
 ---
 
-QSP is enhanced Erlang query string parser, that supports nested arrays, hashes and returns maps. Requires Erlang 17.0 and better.
+QSP is enhanced Erlang query string parser, that supports nested arrays, hashes and returns maps. Requires Erlang 17.0 and better. Extracted from [Plug](https://github.com/elixir-lang/plug/blob/master/lib/plug/conn/query.ex).
 
 ---
 
