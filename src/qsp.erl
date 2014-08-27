@@ -15,10 +15,10 @@ decode_pair({Key, Value}, Acc) ->
         Key /= <<"">> andalso BL == $] ->
             Subkey = binary:part(Key, 0, byte_size(Key) - 1),
             case binary:split(Subkey, <<"[">>) of
-              [Key2, Subpart] ->
-                [Key2 | binary:split(Subpart, <<"][">>, [global])];
-              _ ->
-                [Key]
+                [Key2, Subpart] ->
+                    [Key2 | binary:split(Subpart, <<"][">>, [global])];
+                _ ->
+                    [Key]
             end;
         true ->
             [Key]
