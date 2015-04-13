@@ -7,7 +7,7 @@
 
 decode(QS) ->
     PL = cow_qs:parse_qs(QS),
-    lists:foldl(fun decode_pair/2, #{}, lists:reverse(PL)).
+    lists:foldr(fun decode_pair/2, #{}, PL).
 
 decode_pair({Key, Value}, Acc) ->
     BL = binary:last(Key),
@@ -66,6 +66,17 @@ get(K, M) ->
         {ok, V} -> V;
         U -> U
     end.
+
+benchmark(Tries, M, F, A) ->
+    Total = lists:foldl(fun(_, Acc) ->
+        {Time, _} = timer:tc(M, F, A),
+        Acc + Time
+    end, 0, lists:seq(0, Tries)),
+    ?debugFmt("benchmark ~s:~s - ~pmcs~n", [M, F, Total / Tries]).
+
+decode_benchmark_test() ->
+    QS = <<"foo=bar&baz=bat&x[y][z][]=1&x[y][z][]=2&my+weird+field=q1%212%22">>,
+    benchmark(100000, qsp, decode, [QS]).
 
 decode_simple_test() ->
     P = decode(<<"foo=bar&baz=bat">>),
