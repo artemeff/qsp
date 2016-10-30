@@ -1,6 +1,6 @@
+/_build
+/doc
+*.o
 *.beam
-*.app
-.rebar
-.eunit
-/deps
+*.plt
 erl_crash.dump
