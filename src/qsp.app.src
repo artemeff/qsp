@@ -2,5 +2,9 @@
   {description, "Enhanced query string parser"},
   {vsn, "0.1.0"},
   {registered, []},
-  {applications, [kernel, stdlib, cowlib]}
+  {applications, [kernel, stdlib, cowlib]},
+
+  {maintainers, ["Yuri Artemev"]},
+  {licenses, ["MIT"]},
+  {links, [{"GitHub", "https://github.com/artemeff/qsp"}]}
  ]}.
