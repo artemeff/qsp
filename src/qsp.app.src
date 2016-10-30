@@ -2,5 +2,5 @@
   {description, "Enhanced query string parser"},
   {vsn, "0.1.0"},
   {registered, []},
-  {applications, [kernel, stdlib]}
+  {applications, [kernel, stdlib, cowlib]}
  ]}.
